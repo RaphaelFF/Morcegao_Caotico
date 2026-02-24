@@ -17,9 +17,9 @@ def obter_cano_aleatorio(IMAGENS_CANO):
     posicao_cano_x = LARGURA_DA_TELA + 10
 
     return [
-        {'x': posicao_cano_x, 'y': posicao_gap_y - altura_cano},  # cano superior
-        {'x': posicao_cano_x, 'y': posicao_gap_y + ESPACO_TUBO},  # cano inferior
-    ]
+            {'x': posicao_cano_x, 'y': posicao_gap_y - altura_cano, 'passou': False},  # cano superior
+            {'x': posicao_cano_x, 'y': posicao_gap_y + ESPACO_TUBO, 'passou': False},  # cano inferior
+        ]
 
 def verificar_colisao(jogador, canos_superiores, canos_inferiores, IMAGENS, MASCARAS_COLISAO):
     # 1. Checa colisão com o chão
