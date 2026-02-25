@@ -39,7 +39,7 @@ def main():
     SONS['bater'] = pygame.mixer.Sound(f'assets/audio/hit{extensao}')
     SONS['ponto'] = pygame.mixer.Sound(f'assets/audio/point{extensao}')
     SONS['swoosh'] = pygame.mixer.Sound(f'assets/audio/swoosh{extensao}')
-    SONS['asa'] = pygame.mixer.Sound(f'assets/audio/wing{extensao}')
+    SONS['asa'] = pygame.mixer.Sound(f'assets/audio/bater-asas{extensao}')
 
     while True:
         # Sorteio de Fundo e Personagem
