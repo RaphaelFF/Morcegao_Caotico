@@ -18,6 +18,13 @@ def main():
     TELA = pygame.display.set_mode((LARGURA_DA_TELA, ALTURA_DA_TELA))
     pygame.display.set_caption('Morcegão Caótico')
     
+    # ícone da janela
+    try:
+        icone = pygame.image.load('assets/img/morcego-asa-aberta.png').convert_alpha()
+        pygame.display.set_icon(icone)
+    except FileNotFoundError:
+        print("Ícone não encontrado - usando ícone padrão")
+    
     # Carregamento de imagens e sons
     IMAGENS['numeros'] = tuple(pygame.image.load(f'assets/img/{i}.png').convert_alpha() for i in range(10))
     IMAGENS['fundos'] = [pygame.image.load(caminho).convert() for caminho in LISTA_FUNDOS]
