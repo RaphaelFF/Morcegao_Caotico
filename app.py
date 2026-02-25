@@ -20,7 +20,7 @@ def main():
     
     # ícone da janela
     try:
-        icone = pygame.image.load('assets/img/morcego-asa-aberta.png').convert_alpha()
+        icone = pygame.image.load('assets/img/asa-aberta.png').convert_alpha()
         pygame.display.set_icon(icone)
     except FileNotFoundError:
         print("Ícone não encontrado - usando ícone padrão")
