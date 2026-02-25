@@ -30,7 +30,8 @@ LISTA_JOGADORES = (
 # Lista de fundos disponíveis
 LISTA_FUNDOS = (
     'assets/img/fundo1.png',
-    'assets/img/capa2.png', 
+    'assets/img/cenario-verde.png', 
+    'assets/img/cenario-cemiterio.png', 
 )
 
 # Lista de variações de canos
