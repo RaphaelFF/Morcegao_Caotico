@@ -42,6 +42,7 @@ def main():
     SONS['asa'] = pygame.mixer.Sound(f'assets/audio/bater-asas{extensao}')
 
     while True:
+        base_x = 0
         # Sorteio de Fundo e Personagem
         indice_fundo = random.randint(0, len(LISTA_FUNDOS) - 1)
         IMAGENS['fundo'] = pygame.image.load(LISTA_FUNDOS[indice_fundo]).convert()
@@ -63,10 +64,11 @@ def main():
         MASCARAS_COLISAO['cano'] = (obter_mascara_colisao(IMAGENS['cano'][0]), obter_mascara_colisao(IMAGENS['cano'][1]))
         MASCARAS_COLISAO['jogador'] = [obter_mascara_colisao(img) for img in IMAGENS['jogador']]
 
-        # --- FLUXO DO JOGO ---
+        # --- FLUXO DO JOGO ---         
         
         # 1. Tela Inicial
         info_movimento = mostrar_animacao_bem_vindo(TELA, RELOGIO_FPS, IMAGENS, SONS)
+        info_movimento['x_base'] = 0
         
         # 2. Partida
         info_colisao = jogo_principal(TELA, RELOGIO_FPS, IMAGENS, SONS, MASCARAS_COLISAO, info_movimento)

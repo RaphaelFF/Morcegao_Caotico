@@ -103,11 +103,13 @@ def jogo_principal(TELA, RELOGIO_FPS, IMAGENS, SONS, MASCARAS_COLISAO, info_movi
 
         if canos_superiores[0]['x'] < -IMAGENS['cano'][0].get_width():
             canos_superiores.pop(0); canos_inferiores.pop(0)
-            
+        base_x += velocidade_atual   
         # Animação Base e Jogador
         if (iteracao_loop + 1) % 3 == 0: indice_jogador = next(gerador_indice_jogador)
         iteracao_loop = (iteracao_loop + 1) % 30
-        base_x = -((-base_x - velocidade_atual) % deslocamento_base)
+        deslocamento_base = IMAGENS['base'].get_width() - LARGURA_DA_TELA
+        if base_x <= -deslocamento_base:
+            base_x = 0
 
         # --- RENDERIZAÇÃO COM FADE ---
         

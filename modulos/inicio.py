@@ -41,7 +41,11 @@ def mostrar_animacao_bem_vindo(TELA, RELOGIO_FPS, IMAGENS, SONS):
             indice_jogador = next(gerador_indice_jogador)
         
         iteracao_loop = (iteracao_loop + 1) % 30
-        base_x = -((-base_x + 4) % deslocamento_base)
+        base_x -= 4  # Velocidade fixa de menu
+        base_x -= 4  
+        deslocamento_base = IMAGENS['base'].get_width() - LARGURA_DA_TELA
+        if base_x <= -deslocamento_base:
+            base_x = 0
         
         # Chama a função de flutuação 
         tremulacao_jogador(valores_tremulacao)
