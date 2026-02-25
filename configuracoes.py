@@ -11,19 +11,19 @@ VELOCIDADE_BASE = -4
 
 LISTA_JOGADORES = (
     (
-        'assets/img/morcego-asa-fechada.png',
-        'assets/img/morcego-asa-aberta.png',
-        'assets/img/morcego-asa-fechada.png',
+        'assets/img/asa-fechada.png',
+        'assets/img/asa-aberta.png',
+        'assets/img/asa-fechada.png',
     ),
     (
-        'assets/img/morcego-asa-fechada.png',
-        'assets/img/morcego-asa-aberta.png',
-        'assets/img/morcego-asa-fechada.png',
+        'assets/img/asa-fechada.png',
+        'assets/img/asa-aberta.png',
+        'assets/img/asa-fechada.png',
     ),
     (
-        'assets/img/morcego-asa-fechada.png',
-        'assets/img/morcego-asa-aberta.png',
-        'assets/img/morcego-asa-fechada.png',
+        'assets/img/asa-fechada.png',
+        'assets/img/asa-aberta.png',
+        'assets/img/asa-fechada.png',
     ),
 )
 
