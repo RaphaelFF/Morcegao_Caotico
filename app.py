@@ -17,9 +17,11 @@ def main():
     RELOGIO_FPS = pygame.time.Clock()
     TELA = pygame.display.set_mode((LARGURA_DA_TELA, ALTURA_DA_TELA))
     pygame.display.set_caption('Morcegão Caótico')
-
+    
     # Carregamento de imagens e sons
     IMAGENS['numeros'] = tuple(pygame.image.load(f'assets/img/{i}.png').convert_alpha() for i in range(10))
+    IMAGENS['fundos'] = [pygame.image.load(caminho).convert() for caminho in LISTA_FUNDOS]
+    IMAGENS['fundo'] = IMAGENS['fundos'][0]
     IMAGENS['gameover'] = pygame.image.load('assets/img/gameover2.png').convert_alpha()
     IMAGENS['capa'] = pygame.image.load('assets/img/capa2.png').convert_alpha()
     IMAGENS['base'] = pygame.image.load('assets/img/base2.png').convert_alpha()

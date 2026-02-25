@@ -5,6 +5,8 @@ from modulos.utilitarios import obter_cano_aleatorio, verificar_colisao
 from modulos.interface import mostrar_pontuacao
 
 def jogo_principal(TELA, RELOGIO_FPS, IMAGENS, SONS, MASCARAS_COLISAO, info_movimento):
+    alpha_transicao = 0  
+    fundo_antigo_indice = 0
     pontuacao = indice_jogador = iteracao_loop = 0
     gerador_indice_jogador = info_movimento['gerador_indice_jogador']
     
@@ -106,8 +108,21 @@ def jogo_principal(TELA, RELOGIO_FPS, IMAGENS, SONS, MASCARAS_COLISAO, info_movi
         iteracao_loop = (iteracao_loop + 1) % 30
         base_x = -((-base_x - velocidade_atual) % deslocamento_base)
 
-        # Desenha tudo
-        TELA.blit(IMAGENS['fundo'], (0,0))
+        # Lógica de transição suave
+        indice_cenario = (pontuacao // 2) % len(IMAGENS['fundos']) 
+        # Desenha sempre o fundo antigo por baixo
+        TELA.blit(IMAGENS['fundos'][fundo_antigo_indice], (0, 0))
+        if indice_cenario != fundo_antigo_indice:
+            fundo_novo = IMAGENS['fundos'][indice_cenario].copy()
+            fundo_novo.set_alpha(alpha_transicao)
+            TELA.blit(fundo_novo, (0, 0))
+            
+            alpha_transicao += 5  
+            
+            if alpha_transicao >= 255:
+                fundo_antigo_indice = indice_cenario
+                alpha_transicao = 0
+                
         for c_sup, c_inf in zip(canos_superiores, canos_inferiores):
             TELA.blit(IMAGENS['cano'][0], (c_sup['x'], c_sup['y']))
             TELA.blit(IMAGENS['cano'][1], (c_inf['x'], c_inf['y']))
