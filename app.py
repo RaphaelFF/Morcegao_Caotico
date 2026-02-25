@@ -37,7 +37,7 @@ def main():
     extensao = '.wav' if 'win' in sys.platform else '.ogg'
     SONS['morrer'] = pygame.mixer.Sound(f'assets/audio/die{extensao}')
     SONS['bater'] = pygame.mixer.Sound(f'assets/audio/hit{extensao}')
-    SONS['ponto'] = pygame.mixer.Sound(f'assets/audio/point{extensao}')
+    SONS['ponto'] = pygame.mixer.Sound(f'assets/audio/ponto{extensao}')
     SONS['swoosh'] = pygame.mixer.Sound(f'assets/audio/swoosh{extensao}')
     SONS['asa'] = pygame.mixer.Sound(f'assets/audio/wing{extensao}')
 
