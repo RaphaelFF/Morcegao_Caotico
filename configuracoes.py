@@ -4,9 +4,10 @@ from pygame.locals import *
 FPS = 30
 LARGURA_DA_TELA = 288
 ALTURA_DA_TELA = 512
-BASE_Y = ALTURA_DA_TELA * 0.79  # Posição do chão
-ESPACO_TUBO = 100 
+BASE_Y = ALTURA_DA_TELA * 0.79 
+ESPACO_TUBO = 120 
 VELOCIDADE_BASE = -4
+TRANSICAO = 10 # qunatidade de pontuacao para a transicao de, velocidade, troca de cenario, troca de cano
 
 
 LISTA_JOGADORES = (

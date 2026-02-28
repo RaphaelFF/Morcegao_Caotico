@@ -72,7 +72,7 @@ def jogo_principal(TELA, RELOGIO_FPS, IMAGENS, SONS, MASCARAS_COLISAO, info_movi
                 SONS['ponto'].play()
 
         # --- LÓGICA DE TRANSIÇÃO SUAVE (Cano e Fundo) ---
-        alvo_cano = (pontuacao // 2) % len(LISTA_CANOS)
+        alvo_cano = (pontuacao // TRASICAO) % len(LISTA_CANOS)
         if alvo_cano != indice_cano_atual and not transicionando_cano:
             indice_cano_novo = alvo_cano
             transicionando_cano = True
@@ -92,12 +92,13 @@ def jogo_principal(TELA, RELOGIO_FPS, IMAGENS, SONS, MASCARAS_COLISAO, info_movi
         posicao_passaro_y += min(velocidade_passaro_y, BASE_Y - posicao_passaro_y - IMAGENS['jogador'][0].get_height())
 
         # Movimentação e Velocidade
-        velocidade_atual = VELOCIDADE_BASE - (pontuacao // 2)
+        velocidade_atual = VELOCIDADE_BASE - (pontuacao // TRASICAO)
         for c_sup, c_inf in zip(canos_superiores, canos_inferiores):
             c_sup['x'] += velocidade_atual
             c_inf['x'] += velocidade_atual
-
-        if canos_superiores[-1]['x'] < LARGURA_DA_TELA / 2:
+            
+        #distancia do cano
+        if canos_superiores[-1]['x'] < LARGURA_DA_TELA / 3:
             novo_cano = obter_cano_aleatorio(IMAGENS['cano'])
             canos_superiores.append(novo_cano[0]); canos_inferiores.append(novo_cano[1])
 
@@ -114,7 +115,7 @@ def jogo_principal(TELA, RELOGIO_FPS, IMAGENS, SONS, MASCARAS_COLISAO, info_movi
         # --- RENDERIZAÇÃO COM FADE ---
         
         # 1. Fundo
-        indice_cenario = (pontuacao // 2) % len(IMAGENS['fundos']) 
+        indice_cenario = (pontuacao // TRASICAO) % len(IMAGENS['fundos']) 
         TELA.blit(IMAGENS['fundos'][fundo_antigo_indice], (0, 0))
         if indice_cenario != fundo_antigo_indice:
             fundo_novo = IMAGENS['fundos'][indice_cenario].copy()
