@@ -36,6 +36,9 @@ LISTA_FUNDOS = (
 
 # Lista de variações de canos
 LISTA_CANOS = (
-    'assets/img/cano-verde.png',
+    'assets/img/cano-roxo.png',
+    'assets/img/cano-blue.png',
+    'assets/img/cano-t.png',
     'assets/img/cano-vermelho.png',
+    
 )
